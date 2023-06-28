@@ -1,6 +1,7 @@
 # Trackmania 2020 Blocks Generator
-Addon to generate blocks for trackmania 2020. 
-![addon image](readme/addon.jpg)
+Blender addon to generate blocks for trackmania 2020.
+
+<img src="readme/addon.jpg" width="350">
 
 ## Existing blocks
 you can find a lot of already generated blocks in https://item.exchange/set/view/11583 (nearly 18k blocks including all extensions) and in Way Too Many trackmania club.
@@ -13,7 +14,8 @@ you can find a lot of already generated blocks in https://item.exchange/set/view
 5. Once selected addon should appear in the list of installed addons
 6. Double check that it's enabled there (checkbox should be checked :D )
 7. After that you should be able to see the addon panel on the right side of the 3D viewport
-![addon image](readme/blender-settings.jpg)
+
+<img src="readme/blender-settings.jpg" width="600">
 
 # How to use
 1. Click "Load assets to blend file" to load required base assets to the current blend file
