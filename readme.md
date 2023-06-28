@@ -6,7 +6,7 @@ Blender addon to generate blocks for trackmania 2020.
 ## Existing blocks
 You can find a lot of already generated blocks in https://item.exchange/set/view/11583 (nearly 18k blocks including all extensions) and in Way Too Many trackmania club.
 
-If you are planning to release block generated with this addon publicly (e.g. item.exchange) - please including the link to the addon in the set description.
+If you are planning to release blocks generated with this addon publicly (e.g. item.exchange) - please including the link to the addon in the set description.
 ```
 Created with [Trackmania Blocks Generator Blender Addon](https://github.com/frolad/Trackmania-Blocks-Generator)
 ```
