@@ -26,6 +26,12 @@ you can find a lot of already generated blocks in https://item.exchange/set/view
 1. Via Blender by using [Blendermania](https://github.com/skyslide22/blendermania-addon) addon
 2. Manually by using [Nadeo importer](https://doc.trackmania.com/create/nadeo-importer/)
 
+## Uploading to item exachange and any other platforms
+Please including the link to the addon in the set description if you are going to upload it to item exachange or any other public platforms.
+```
+Created with [Trackmania Blocks Generator Blender Addon](https://github.com/frolad/Trackmania-Blocks-Generator)
+```
+
 ## Upcoming features
 1. Ability to generate stackable platform blocks
 2. Transitions to wallrides and pipes
