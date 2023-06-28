@@ -4,7 +4,12 @@ Blender addon to generate blocks for trackmania 2020.
 <img src="readme/addon.jpg" width="350">
 
 ## Existing blocks
-you can find a lot of already generated blocks in https://item.exchange/set/view/11583 (nearly 18k blocks including all extensions) and in Way Too Many trackmania club.
+You can find a lot of already generated blocks in https://item.exchange/set/view/11583 (nearly 18k blocks including all extensions) and in Way Too Many trackmania club.
+
+If you are planning to release block generated with this addon publicly (e.g. item.exchange) - please including the link to the addon in the set description.
+```
+Created with [Trackmania Blocks Generator Blender Addon](https://github.com/frolad/Trackmania-Blocks-Generator)
+```
 
 ## How to install
 1. Install Blender 3.5 or later
@@ -25,12 +30,6 @@ you can find a lot of already generated blocks in https://item.exchange/set/view
 ## How to export generated block
 1. Via Blender by using [Blendermania](https://github.com/skyslide22/blendermania-addon) addon
 2. Manually by using [Nadeo importer](https://doc.trackmania.com/create/nadeo-importer/)
-
-## Uploading to item exachange and any other platforms
-Please including the link to the addon in the set description if you are going to upload it to item exachange or any other public platforms.
-```
-Created with [Trackmania Blocks Generator Blender Addon](https://github.com/frolad/Trackmania-Blocks-Generator)
-```
 
 ## Upcoming features
 1. Ability to generate stackable platform blocks
