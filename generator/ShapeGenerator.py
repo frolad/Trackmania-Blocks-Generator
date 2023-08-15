@@ -43,14 +43,6 @@ def create_item(
     new_object.location = (0, 0, 0)
     new_object.name = f"{name}"
 
-    if uv_scale_factor > 1:
-        scale_object_uv(
-            new_object,
-            "BaseMaterial",
-            uv_scale_factor,
-            uv_material_settings,
-        )
-
     item_lattice, shape_objects = create_item_shape(
         source_object,
         dest_collection,
@@ -70,6 +62,14 @@ def create_item(
 
     if should_make_flat_bottom:
         make_flat_bottom(new_object, shift_xyz[2])
+
+    if uv_scale_factor > 1:
+        scale_object_uv(
+            new_object,
+            "BaseMaterial",
+            uv_scale_factor,
+            uv_material_settings,
+        )
 
     return new_object
 
