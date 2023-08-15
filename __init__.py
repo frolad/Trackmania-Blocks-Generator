@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Trackmania Blocks Generator",
     "author": "Juice",
-    "version": (1, 0),
+    "version": (1, 0, 1),
     "blender": (3, 5, 0),
     "location": "View3D > Sidebar > TM Blocks Generator",
     "description": "Generate road/platform blocks for trackmania 2020",
