@@ -38,7 +38,7 @@ classes = [
     VIEW3D_OT_GenerateRoadSet,
     VIEW3D_OT_LoadAssetsLib,
     VIEW3D_OT_GenerateItem,
-    #VIEW3D_PT_SetsMaker,
+    VIEW3D_PT_SetsMaker,
     ShapeGeneratorProperties,
 ]
 

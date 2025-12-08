@@ -6,6 +6,7 @@ from .operators import (
 from .properties import ShapeGeneratorProperties
 from .PanelUtils import (
     add_label,
+    add_simple_text,
 )
 
 class VIEW3D_PT_SetsMaker(Panel):
@@ -24,12 +25,41 @@ class VIEW3D_PT_SetsMaker(Panel):
             row.operator(VIEW3D_OT_LoadAssetsLib.bl_idname, text="Load assets to blend file", icon="ADD")
             return
         
-        box = layout.box()
-        box.column().prop(settings, "set_road_item_start_type", text="Start road type")
-        box.column().prop(settings, "set_road_item_end_type", text="End road type")
-        box.separator(factor=0)
+        layout.row().prop(settings, "generation_source", expand=True)
+        
+        if settings.generation_source == "ROAD":
+            box = layout.box()
+            box.column().prop(settings, "set_road_item_start_type", text="Start road type")
+            box.column().prop(settings, "set_road_item_end_type", text="End road type")
+            box.separator(factor=0)
+
+        elif settings.generation_source == "PLATFORM":
+            box = layout.box()
+            add_simple_text(box, "NOT IMPLEMENTED YET")
+
+        elif settings.generation_source == "SHAPE":
+            box = layout.box()
+            add_simple_text(box, "NOT IMPLEMENTED YET")
+
+        else:
+            layout.separator(factor=0)
+            add_label(layout, text="Surface and shape")
+            box = layout.box()
+            custom_single_shape(box, settings)
+            box.separator(factor=0)
 
         layout.separator(factor=0)
         row = layout.row()
         row.scale_y = 1.5
         row.operator(VIEW3D_OT_GenerateRoadSet.bl_idname, text="Generate WTMT-like road set", icon="ADD")
+    
+def custom_single_shape(box, settings):
+    box.separator(factor=0)
+    add_simple_text(box, "Custom object must:")
+    add_simple_text(box, "1) Fit in 32x32x32 meters")
+    add_simple_text(box, "2) Have origin in the x,y center")
+    add_simple_text(box, "3) Have enough subdivision")
+    add_simple_text(box, "4) To understand how UV scales - play and test")
+    
+    add_label(box, text="Custom object:")
+    box.row().column().prop(settings, "custom_object", text="")

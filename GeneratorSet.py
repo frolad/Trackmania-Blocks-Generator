@@ -7,7 +7,7 @@ from .generator.Constants import (
     enum_by_name,
 )
 
-def generate_default_road_set(settings: ShapeGeneratorProperties):
+def generate_default_road_set(settings: ShapeGeneratorProperties, custom):
     start_type = enum_by_name(ROAD_TYPE, settings.set_road_item_start_type)
     end_type = enum_by_name(ROAD_TYPE, settings.set_road_item_end_type)
-    generate_road_base_transitions(start_type, end_type)
+    generate_road_base_transitions(start_type, end_type, custom)

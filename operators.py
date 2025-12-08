@@ -63,7 +63,12 @@ class VIEW3D_OT_GenerateRoadSet(Operator):
 
     def execute(self, context):
         settings:ShapeGeneratorProperties = context.scene.tm_shape_generator
-        response = generate_default_road_set(settings)
+        
+        if settings.generation_source =="ROAD":
+            response = generate_default_road_set(settings, False)
+
+        elif settings.generation_source == "CUSTOM":
+            response = generate_default_road_set(settings, True)
 
         if type(response) is str:
             self.report({"ERROR"}, response)
