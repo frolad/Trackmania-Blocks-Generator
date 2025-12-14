@@ -100,7 +100,7 @@ def create_item_shape(
     if middle_shape == MIDDLE_SHAPE.TURN:
         curves = set_curves_into_turn(curves, shift_xyz[1], "Left" if shift_xyz[0] < 0 else "Right")
     elif middle_shape == MIDDLE_SHAPE.CHICANE:
-        if SIDE_SHAPE_BASE.SLOPE.value not in start_shape.value and SIDE_SHAPE_BASE.SLOPE.value not in end_shape.value and shift_xyz[0] < shift_xyz[1]:
+        if False: # SIDE_SHAPE_BASE.SLOPE.value not in start_shape.value and SIDE_SHAPE_BASE.SLOPE.value not in end_shape.value and shift_xyz[0] < shift_xyz[1]:
             curves = set_curves_into_straight(curves, shift_xyz[1])
             center_curve = set_lattice_center_chicane_curve(item_lattice, shift_xyz[0], shift_xyz[1])
             shape_objects.append(center_curve)
