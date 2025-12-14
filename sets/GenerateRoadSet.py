@@ -35,46 +35,22 @@ def _generate_road_item(
     ignore_collection_creation: bool = False,
     custom:                     bool = False,
 ) -> bpy.types.Object: 
-    collection_name = get_order_prefix(order, second_order)+shorten_road_start_end(start[0], end[0])+"_"+prepare_item_name(middle_shape, start[1], end[1], shift_xyz)
-    item_collection = bpy.context.blend_data.collections.new(name=collection_name)
-    dest_collection.children.link(item_collection)
     settings:ShapeGeneratorProperties = bpy.context.scene.tm_shape_generator
-    #is_same_both_ways = False
-    #if start[0] != end[0] and shift_xyz[2] == 0:
-    #    if start[1] == end[1] and start[1] == SIDE_SHAPE.FLAT:
-    #        is_same_both_ways = True
-
-    #if not is_same_both_ways and not ignore_both_ways:
-    #    _generate_road_item((start[0], start[1]), (end[0], end[1]), middle_shape, shift_xyz, item_collection, position, order=1, second_order=1, ignore_both_ways=True)
-    #    position = [position[0]-32*shift_xyz[1]*2+32, position[1], position[2]]
-    #    _generate_road_item((end[0], start[1]), (start[0], end[1]), middle_shape, shift_xyz, item_collection, position, order=1, second_order=2, ignore_both_ways=True)
-    #    return item_collection
-
-
-    # if settings.custom_object is None:
-    #     return "Select object first"
-    # else:
-    #     start_shape=enum_by_name(SIDE_SHAPE, settings.custom_start_shape)
-    #     end_shape=enum_by_name(SIDE_SHAPE, settings.custom_end_shape)
-    #     middle_shape=enum_by_name(MIDDLE_SHAPE, settings.middle_shape)
-    #     shift_xyz=(settings.shift_on_x, settings.shift_on_y, settings.shift_on_z)
-    #     name = settings.custom_object.name+"_"+prepare_item_name(middle_shape, start_shape, end_shape, shift_xyz)
-        
-    #     has_bottom_vertices = True if "_bottom_vertices" in settings.custom_object.vertex_groups else None
-    #     uv_scale_factor = 1
-    #     if settings.custom_should_scale_uv:
-    #         uv_scale_factor = settings.shift_on_y if middle_shape != MIDDLE_SHAPE.TURN else settings.shift_on_y + 1
-        
-    #     item_collection = bpy.context.blend_data.collections.new(name=name)
-    #     bpy.context.scene.collection.children.link(item_collection)
-
-    print(custom)
+    
     if custom:
+        collection_name = get_order_prefix(order, second_order)+settings.custom_object.name+"_"+prepare_item_name(middle_shape, start[1], end[1], shift_xyz)
         source_object = settings.custom_object
     else:
+        collection_name = get_order_prefix(order, second_order)+shorten_road_start_end(start[0], end[0])+"_"+prepare_item_name(middle_shape, start[1], end[1], shift_xyz)
         source_object = get_road_prefab(start, end)
+
+    item_collection = bpy.context.blend_data.collections.new(name=collection_name)
+    dest_collection.children.link(item_collection)
+
     if source_object is None:
         return "no object for this shape"
+    
+
 
 
     has_bottom_vertices = True if "_bottom_vertices" in source_object.vertex_groups else None
@@ -115,8 +91,12 @@ def _generate_road_variants(
     order:           int,
     custom:          bool
 ):
+    settings:ShapeGeneratorProperties = bpy.context.scene.tm_shape_generator
     shift_z_order = 1
-    root_name = shorten_road_start_end(start_type, end_type)
+    if custom:
+        root_name = settings.custom_object.name
+    else:
+        root_name = shorten_road_start_end(start_type, end_type)
     shape_collection_name = get_order_prefix(order)+root_name+f"_{shorten_shape_name(middle_shape)}_{shorten_shape_name(start_shape, True)}_{shorten_shape_name(end_shape, True)}"
     if shape_collection_name in dest_collection.children:
         shape_collection = dest_collection.children[shape_collection_name]
@@ -159,7 +139,11 @@ def _generate_road_variants(
 def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE, custom_block: bool):
     pos = [48, 48, 0]
     custom = custom_block
-    root_name = shorten_road_start_end(start_type, end_type)
+    settings:ShapeGeneratorProperties = bpy.context.scene.tm_shape_generator
+    if custom:
+        root_name = settings.custom_object.name
+    else:
+        root_name = shorten_road_start_end(start_type, end_type)
     root_coll = create_collection_in(bpy.context.scene.collection, root_name)
 
     # STRAIGHT FLAT
