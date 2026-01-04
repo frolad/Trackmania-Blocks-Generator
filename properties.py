@@ -11,6 +11,7 @@ from .generator.Constants import (
     SIDE_SHAPE,
     MIDDLE_SHAPE,
     PLATFORM_TYPE,
+    SET_TYPE,
 )
 
 ROAD_TYPES = (
@@ -58,6 +59,13 @@ MIDDLE_SHAPES = (
     (MIDDLE_SHAPE.STRAIGHT.name, MIDDLE_SHAPE.STRAIGHT.value, MIDDLE_SHAPE.STRAIGHT.name),
     (MIDDLE_SHAPE.CHICANE.name, MIDDLE_SHAPE.CHICANE.value, MIDDLE_SHAPE.CHICANE.name),
     (MIDDLE_SHAPE.TURN.name, MIDDLE_SHAPE.TURN.value, MIDDLE_SHAPE.TURN.name),
+)
+
+SET_TYPES = (
+    (SET_TYPE.ROAD.name, SET_TYPE.ROAD.value, SET_TYPE.ROAD.name),
+    (SET_TYPE.PLATFORM.name, SET_TYPE.PLATFORM.value, SET_TYPE.PLATFORM.name),
+    (SET_TYPE.EXTRAS.name, SET_TYPE.EXTRAS.value, SET_TYPE.EXTRAS.name),   
+    (SET_TYPE.FULL.name, SET_TYPE.FULL.value, SET_TYPE.FULL.name), 
 )
 
 class ShapeGeneratorProperties(PropertyGroup):
@@ -159,6 +167,12 @@ class ShapeGeneratorProperties(PropertyGroup):
         name="Set item type",
         default=ROAD_TYPE.ROAD_TECH.name,
     )
+    set_type: EnumProperty(
+        items=SET_TYPES,
+        name="Set type",
+        default=SET_TYPE.ROAD.name,
+    )
+
     # REST
     shift_on_x: IntProperty(default=0)
     shift_on_y: IntProperty(default=1, min=1)

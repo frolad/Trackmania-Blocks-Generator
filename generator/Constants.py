@@ -40,6 +40,13 @@ class SIDE_SHAPE_BASE(Enum):
     BI_SLOPE         = "BiSlope"
     SLOPE            = "Slope"
 
+class SET_TYPE(Enum):
+    ROAD = "Road"
+    PLATFORM = "Platform"
+    EXTRAS = "Extras"
+    FULL = "Full set"
+    
+
 TURN_CURVE_HANDLE_COEF = 1.8111840615802580937287751867784
 
 LETTERS_ORDER = ["W","V","U","T","S","R","Q","P","O","N","M","L","K","J","I","H","G","F","E","D","C","B","A","9","8","7","6","5","4","3","2","1"]
