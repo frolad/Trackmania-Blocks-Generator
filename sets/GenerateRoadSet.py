@@ -376,7 +376,6 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 +1, [2,3,4,5],   [+2, +1], 1)
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 +1, [1,2,3,4,5], [+0],     1)
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 -1, [2,3,4,5],   [+2, +1], 1)
-        pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 -1, [1,2,3,4,5], [+0],     1)
         if end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.HALFBANKED_RIGHT,                 +1, [2,3,4,5],   [+1],     2)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.HALFBANKED_RIGHT,                 +1, [1,2,3,4,5], [+0],     2)
@@ -394,7 +393,6 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 +1, [2,3,4,5],   [+2, +1], 1)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 +1, [1,2,3,4,5], [+0],     1)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 -1, [2,3,4,5],   [+2, +1], 1)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.FLAT,                                 -1, [1,2,3,4,5], [+0],     1)
         if end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.BANKED_RIGHT,                 +1, [2,3,4,5],   [+1],     2)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.FLAT, SIDE_SHAPE.BANKED_RIGHT,                 +1, [1,2,3,4,5], [+0],     2)
@@ -419,8 +417,6 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
     if settings.set_type == SET_TYPE.ROAD.name or settings.set_type == SET_TYPE.FULL.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.HALFBANKED_RIGHT,     +1, [1,2,3,4,5], [0], 1)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.HALFBANKED_LEFT,      -1, [1,2,3,4,5], [0], 2)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.HALFBANKED_RIGHT,     -1, [1,2,3,4,5], [0], 3)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.HALFBANKED_LEFT,       +1, [1,2,3,4,5], [0], 4)
         if start_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,          +1, [2,3,4,5],   [+2, +1], 5)
@@ -446,8 +442,6 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
     if settings.set_type == SET_TYPE.PLATFORM.name or settings.set_type == SET_TYPE.FULL.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     +1, [1,2,3,4,5], [0], 1)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.BANKED_LEFT,      -1, [1,2,3,4,5], [0], 2)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     -1, [1,2,3,4,5], [0], 3)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,       +1, [1,2,3,4,5], [0], 4)
         if start_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,          +1, [2,3,4,5],   [+2, +1], 5)
