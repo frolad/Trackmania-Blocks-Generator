@@ -11,7 +11,7 @@ from .PanelUtils import (
 
 class VIEW3D_PT_SetsMaker(Panel):
     bl_label = "Road Set Maker"
-    bl_category = "TM Items Generator"
+    bl_category = "TM Set Generator"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
