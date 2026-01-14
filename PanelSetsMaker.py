@@ -54,7 +54,7 @@ class VIEW3D_PT_SetsMaker(Panel):
         layout.separator(factor=0)
         row = layout.row()
         row.scale_y = 1.5
-        row.operator(VIEW3D_OT_GenerateRoadSet.bl_idname, text="Generate WTMT-like road set", icon="ADD")
+        row.operator(VIEW3D_OT_GenerateRoadSet.bl_idname, text="Generate WTMT-like set", icon="ADD")
 
 def custom_single_shape(box, settings):
     box.separator(factor=0)
