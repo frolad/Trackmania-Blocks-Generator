@@ -178,7 +178,7 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
 
 
     # STRAIGHT HALF BANKED
-    start_shape_coll = create_collection_in(root_coll, get_order_prefix(1, 2)+f"{SIDE_SHAPE_BASE.BANKED.value}Start") # +root_name   _{MIDDLE_SHAPE.STRAIGHT.value}_
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(1, 2)+f"{SIDE_SHAPE_BASE.HALFBANKED.value}Start") # +root_name   _{MIDDLE_SHAPE.STRAIGHT.value}_
     if settings.set_type == SET_TYPE.ROAD.name or settings.set_type == SET_TYPE.FULL.name:         
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.HALFBANKED_LEFT,   +0, [1,2,3,4], [+0], 1)
@@ -191,6 +191,22 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,      +0, [2,3,4],   [+3], 6)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,      +0, [1,2,3],   [+2], 6)
 
+    
+
+    if settings.set_type == SET_TYPE.FULL.name or settings.set_type == SET_TYPE.EXTRAS.name:
+        if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,   +0, [1,2,3,4], [+0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT, +0, [1,2,3,4], [+0], 8)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_LEFT,  +0, [1,2,3,4], [+0], 9)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BANKED_RIGHT, +0, [1,2,3,4], [+0], 10)
+        if start_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,      +0, [2,3,4],   [+3], 11)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,      +0, [1,2,3],   [+2], 11)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,      +0, [2,3,4],   [+3], 12)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,      +0, [1,2,3],   [+2], 12)
+
+    # STRAIGHT BANKED
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(1, 3)+f"{SIDE_SHAPE_BASE.BANKED.value}Start") # +root_name   _{MIDDLE_SHAPE.STRAIGHT.value}_
     if settings.set_type == SET_TYPE.PLATFORM.name or settings.set_type == SET_TYPE.FULL.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,   +0, [1,2,3,4], [+0], 1)
@@ -203,27 +219,18 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,      +0, [2,3,4],   [+3], 6)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,      +0, [1,2,3],   [+2], 6)
 
+
     if settings.set_type == SET_TYPE.FULL.name or settings.set_type == SET_TYPE.EXTRAS.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,   +0, [1,2,3,4], [+0], 1)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT, +0, [1,2,3,4], [+0], 2)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_LEFT,  +0, [1,2,3,4], [+0], 3)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BANKED_RIGHT, +0, [1,2,3,4], [+0], 4)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.HALFBANKED_LEFT,   +0, [1,2,3,4], [+0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, +0, [1,2,3,4], [+0], 8)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  +0, [1,2,3,4], [+0], 9)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.HALFBANKED_RIGHT, +0, [1,2,3,4], [+0], 10)
         if start_type != ROAD_TYPE.ROAD_ICE:
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,      +0, [2,3,4],   [+3], 5)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,      +0, [1,2,3],   [+2], 5)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,      +0, [2,3,4],   [+3], 6)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,      +0, [1,2,3],   [+2], 6)
-        if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.HALFBANKED_LEFT,   +0, [1,2,3,4], [+0], 1)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.HALFBANKED_RIGHT, +0, [1,2,3,4], [+0], 2)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.HALFBANKED_LEFT,  +0, [1,2,3,4], [+0], 3)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.HALFBANKED_RIGHT, +0, [1,2,3,4], [+0], 4)
-        if start_type != ROAD_TYPE.ROAD_ICE:
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,      +0, [2,3,4],   [+3], 5)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,      +0, [1,2,3],   [+2], 5)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,      +0, [2,3,4],   [+3], 6)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,      +0, [1,2,3],   [+2], 6)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,      +0, [2,3,4],   [+3], 11)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,      +0, [1,2,3],   [+2], 11)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,      +0, [2,3,4],   [+3], 12)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,      +0, [1,2,3],   [+2], 12)
 
     if settings.set_type == SET_TYPE.FULL.name:
         pos = [48+32*pos_update, 48, 0]
@@ -233,7 +240,7 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
 
 
     # STRAIGHT BI SLOPE
-    start_shape_coll = create_collection_in(root_coll, get_order_prefix(1, 3)+f"{SIDE_SHAPE_BASE.BI_SLOPE.value}Start") # +root_name   _{MIDDLE_SHAPE.STRAIGHT.value}_
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(1, 4)+f"{SIDE_SHAPE_BASE.SLOPE.value}Start") # +root_name   _{MIDDLE_SHAPE.STRAIGHT.value}_
     if settings.set_type == SET_TYPE.ROAD.name or settings.set_type == SET_TYPE.FULL.name:
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BI_SLOPE_UP, SIDE_SHAPE.BI_SLOPE_UP,               +0, [1], [+1], 1)
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.STRAIGHT, SIDE_SHAPE.BI_SLOPE_UP, SIDE_SHAPE.BI_SLOPE_UP,               +0, [2], [+2], 1)
@@ -303,22 +310,59 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
     if settings.set_type == SET_TYPE.ROAD.name or settings.set_type == SET_TYPE.FULL.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.HALFBANKED_LEFT,   +1, [2, 3, 4], [+0], 1)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.HALFBANKED_RIGHT,  -1, [2, 3, 4], [+1], 1)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.HALFBANKED_RIGHT,  -1, [2, 3, 4], [+0], 2)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.HALFBANKED_LEFT,    +1, [2, 3, 4], [+1], 2)
         if start_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,       +1, [2, 3, 4], [+2], 3)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_UP,       -1, [2, 3, 4], [+2], 4)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,       +1, [2, 3, 4], [+2], 5)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,       -1, [2, 3, 4], [+2], 6)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_UP,       -1, [2, 3, 4], [+2], 4)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BI_SLOPE_DOWN,       +1, [2, 3, 4], [-1], 5)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BI_SLOPE_DOWN,       -1, [2, 3, 4], [-1], 6)
     
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(2, 3)+f"{SIDE_SHAPE_BASE.HALFBANKED.value}Start_extra") # +root_name     _{MIDDLE_SHAPE.CHICANE.value}_
+    if settings.set_type == SET_TYPE.FULL.name or settings.set_type == SET_TYPE.EXTRAS.name:
+        if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_LEFT,   +1, [2, 3, 4], [+0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,  -1, [2, 3, 4], [+0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BANKED_RIGHT,  -1, [2, 3, 4], [+0], 8)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,    +1, [2, 3, 4], [+0], 8)
+        if start_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,       +1, [2, 3, 4], [+2], 9)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,       -1, [2, 3, 4], [+2], 10)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.SLOPE_DOWN,     +1, [2, 3, 4], [-1], 11)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.SLOPE_DOWN,     -1, [2, 3, 4], [-1], 12)
+            
+
+    if settings.set_type == SET_TYPE.FULL.name:
+        pos = [48+32*pos_update, 48, 0]
+        pos_update += 10
+
+    # CHICANE BANKED
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(2, 4)+f"{SIDE_SHAPE_BASE.BANKED.value}Start") # +root_name     _{MIDDLE_SHAPE.CHICANE.value}_
     if settings.set_type == SET_TYPE.PLATFORM.name or settings.set_type == SET_TYPE.FULL.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BANKED_LEFT,   +1, [2, 3, 4], [+0], 1)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,  -1, [2, 3, 4], [+2], 1)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.BANKED_RIGHT,  -1, [2, 3, 4], [+0], 2)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,    +1, [2, 3, 4], [+2], 2)
         if start_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,       +1, [2, 3, 4], [+2], 3)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.SLOPE_UP,       -1, [2, 3, 4], [+2], 4)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,       +1, [2, 3, 4], [+2], 5)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,       -1, [2, 3, 4], [+2], 6)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.SLOPE_UP,       -1, [2, 3, 4], [+2], 4)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.SLOPE_DOWN,     +1, [2, 3, 4], [-1], 5)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.SLOPE_DOWN,     -1, [2, 3, 4], [-1], 6)
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(2, 5)+f"{SIDE_SHAPE_BASE.BANKED.value}Start_extra") # +root_name     _{MIDDLE_SHAPE.CHICANE.value}_
+    if settings.set_type == SET_TYPE.FULL.name or settings.set_type == SET_TYPE.EXTRAS.name:
+        if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.HALFBANKED_LEFT,   +1, [2, 3, 4], [+0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.HALFBANKED_RIGHT,  -1, [2, 3, 4], [+0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.HALFBANKED_RIGHT,  -1, [2, 3, 4], [+0], 8)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,  SIDE_SHAPE.HALFBANKED_LEFT,   +1, [2, 3, 4], [+0], 8)
+        if start_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT,  SIDE_SHAPE.BI_SLOPE_UP,       +1, [2, 3, 4], [+2], 9)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,   SIDE_SHAPE.BI_SLOPE_UP,      -1, [2, 3, 4], [+2], 10)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_RIGHT,  SIDE_SHAPE.BI_SLOPE_DOWN,    +1, [2, 3, 4], [-1], 11)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.CHICANE, SIDE_SHAPE.BANKED_LEFT,   SIDE_SHAPE.BI_SLOPE_DOWN,    -1, [2, 3, 4], [-1], 12)
+
 
     pos = [48+32*pos_update, 48, 0]
     pos_update += 10
@@ -390,6 +434,15 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BI_SLOPE_UP,           +1, [2],         [+2],     6)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BI_SLOPE_UP,           +1, [1],         [+1],     6)
 
+    if settings.set_type == SET_TYPE.EXTRAS.name or settings.set_type == SET_TYPE.FULL.name:
+        if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     +1, [1,2,3,4,5], [0], 7)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BANKED_LEFT,      -1, [1,2,3,4,5], [0], 8)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     -1, [2,3,4,5], [0], 9)
+            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,       +1, [2,3,4,5], [0], 10)
+
+
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(3, 3)+f"{SIDE_SHAPE_BASE.BANKED.value}Start") # +root_name    _{MIDDLE_SHAPE.TURN.value}_
     if settings.set_type == SET_TYPE.PLATFORM.name or settings.set_type == SET_TYPE.FULL.name:
         if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     +1, [1,2,3,4,5], [0], 1)
@@ -408,13 +461,6 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.SLOPE_UP,           +1, [2],         [+3],     6)
             pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BANKED_LEFT, SIDE_SHAPE.SLOPE_UP,           +1, [1],         [+2],     6)
 
-    if settings.set_type == SET_TYPE.EXTRAS.name or settings.set_type == SET_TYPE.FULL.name:
-        if start_type != ROAD_TYPE.ROAD_ICE and end_type != ROAD_TYPE.ROAD_ICE:
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     +1, [1,2,3,4,5], [0], 1)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT,  SIDE_SHAPE.BANKED_LEFT,      -1, [1,2,3,4,5], [0], 2)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_RIGHT, SIDE_SHAPE.BANKED_RIGHT,     -1, [2,3,4,5], [0], 3)
-            pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.HALFBANKED_LEFT, SIDE_SHAPE.BANKED_LEFT,       +1, [2,3,4,5], [0], 4)
-
     if settings.set_type == SET_TYPE.FULL.name:
         pos = [48+32*pos_update, 48, 0]
         pos_update += 10
@@ -423,7 +469,7 @@ def generate_road_base_transitions(start_type: ROAD_TYPE, end_type: ROAD_TYPE):
 
 
     # TURN BI SLOPE
-    start_shape_coll = create_collection_in(root_coll, get_order_prefix(3, 3)+f"{SIDE_SHAPE_BASE.BI_SLOPE.value}Start") # +root_name      _{MIDDLE_SHAPE.TURN.value}_
+    start_shape_coll = create_collection_in(root_coll, get_order_prefix(3, 4)+f"{SIDE_SHAPE_BASE.BI_SLOPE.value}Start") # +root_name      _{MIDDLE_SHAPE.TURN.value}_
     if settings.set_type == SET_TYPE.ROAD.name or settings.set_type == SET_TYPE.FULL.name:
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BI_SLOPE_DOWN, SIDE_SHAPE.BI_SLOPE_UP,                 -1, [2,3,4,5], [0], 1)
         pos = _generate_road_variants(start_type, end_type, start_shape_coll, pos, MIDDLE_SHAPE.TURN, SIDE_SHAPE.BI_SLOPE_UP,   SIDE_SHAPE.BI_SLOPE_DOWN,               -1, [2,3,4,5], [0], 2)
