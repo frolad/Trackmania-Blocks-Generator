@@ -45,6 +45,9 @@ class SET_TYPE(Enum):
     PLATFORM = "Platform"
     EXTRAS = "Extras"
     FULL = "Full set"
+    OFFROADFLATS = "No banked blocks (cutsom bank mesh sets)"
+    OFFROADBANKS = "Only banked (cutsom bank mesh sets)"
+    OFFROADTRANSITIONS = "Transitions to banked (cutsom bank mesh sets)"
     
 
 TURN_CURVE_HANDLE_COEF = 1.8111840615802580937287751867784
