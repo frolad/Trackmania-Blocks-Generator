@@ -66,3 +66,4 @@ def custom_single_shape(box, settings):
 
     add_label(box, text="Custom object:")
     box.row().column().prop(settings, "custom_object", text="")
+    box.row().column().prop(settings, "custom_should_scale_uv", text="Scale BaseMaterial UV", toggle=True)

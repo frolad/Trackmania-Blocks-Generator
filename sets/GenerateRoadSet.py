@@ -54,7 +54,9 @@ def _generate_road_item(
 
 
     has_bottom_vertices = True if "_bottom_vertices" in source_object.vertex_groups else None
-    uv_scale_factor = shift_xyz[1] if middle_shape != MIDDLE_SHAPE.TURN else shift_xyz[1] + 1
+    uv_scale_factor = 1
+    if settings.custom_should_scale_uv:
+        uv_scale_factor = shift_xyz[1] if middle_shape != MIDDLE_SHAPE.TURN else shift_xyz[1] + 1
     
 
     new_item = create_item(
