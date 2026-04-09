@@ -12,7 +12,7 @@ Created with [Trackmania Blocks Generator Blender Addon](https://github.com/frol
 ```
 
 ## How to install
-1. Install Blender 3.5 or later
+1. Install Blender 3.5 or later, Set generator tested with Blender 4.5
 2. Download addon using Code -> Download zip on the addon github main page
 3. Open blender and go to Edit -> Preferences -> Addons
 4. Click Install button and select downloaded zip archive

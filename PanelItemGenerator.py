@@ -33,6 +33,7 @@ class VIEW3D_PT_ShapeGeneratorPanel(Panel):
         layout.row().prop(settings, "generation_source", expand=True)
 
         if settings.generation_source == "ROAD":
+            settings.property_unset("custom_object")
             add_label(layout, text="Road surface")
             layout.row().prop(settings, "generation_road_source", expand=True)
 
@@ -48,12 +49,14 @@ class VIEW3D_PT_ShapeGeneratorPanel(Panel):
             box.separator(factor=0)
             
         elif settings.generation_source == "PLATFORM":
+            settings.property_unset("custom_object")
             layout.separator(factor=0)
             add_label(layout, text="Surface and shape")
             box = layout.box()
             platform_single_shape(box, settings)
             box.separator(factor=0)
         elif settings.generation_source == "SHAPE":
+            settings.property_unset("custom_object")
             layout.separator(factor=0)
             add_label(layout, text="Shape")
             box = layout.box()

@@ -101,7 +101,7 @@ def set_curves_end_shift(curves: dict[str, bpy.types.Curve], end_shift_on_z: int
 
 def set_lattice_center_chicane_curve(lattice: bpy.types.Object, end_shift_on_x: int, end_shift_on_y: int) -> bpy.types.Curve:
     center_curve = duplicate_object_to_collection(get_curve_prefab(), lattice.users_collection[0])
-    center_curve.location = (lattice.location[0], lattice.location[1]-lattice.dimensions[1]/2, lattice.location[2])
+    center_curve.location = (lattice.location[0], lattice.location[1]-16, lattice.location[2])
     center_curve.name = lattice.name.replace("_lattice", "_curve_center")
 
     for spline in center_curve.data.splines:
